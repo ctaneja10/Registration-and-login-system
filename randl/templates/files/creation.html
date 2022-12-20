@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>SignUp</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="text-center">SignUp Form</h1>
+      </header>
+      <form id="survey-form" action="/handlesignup/" method="post">{% csrf_token %}
+        <div class="form-group">
+          <label id="name-label" for="name">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>    
+        <div class="form-group">
+            <label id="pass-label" for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="Enter your Password"
+              required
+            />
+          </div>  
+          <div class="form-group">
+            <label id="cpass-label" for="cpass">Confirm Password</label>
+            <input
+              type="password"
+              name="cpass"
+              id="cpass"
+              class="form-control"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>   
+        
+
+        <div class="form-group">
+            {% csrf_token %}
+          <button type="submit" id="submit" class="submit-button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
